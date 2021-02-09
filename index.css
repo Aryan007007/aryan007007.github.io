@@ -45,7 +45,6 @@ header, .abstract, .skills-wrapper{
     text-align: center;
     padding: 5vh 10vw 0 10vw;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -119,7 +118,7 @@ header, .abstract, .skills-wrapper{
     margin: -220px auto 0 auto;
     width: 80vw;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     align-content: space-between;
     border-radius: 15px;
     box-shadow: 1px 1px 3px #3B42502f, -1px 0 3px #3b42502f;
@@ -128,6 +127,7 @@ header, .abstract, .skills-wrapper{
 .designer, 
 .front-end, 
 .back-end{
+    width: 100%;
     text-align: center;
     align-content: space-between;
     
@@ -135,7 +135,7 @@ header, .abstract, .skills-wrapper{
 
 .designer,
 .front-end{
-    border-right: 1px solid #3b42504d;
+    border-right: 1px solid #3b425015;
 }
 
 /* .designer div, .front-end div, .back-end div{
@@ -156,7 +156,8 @@ header, .abstract, .skills-wrapper{
 }
 
 .designer .end-line, .front-end .end-line, .back-end .end-line {
-    margin: 40px 50px;
+    width: 80%;
+    margin: 40px auto;
     height: 2px;
     background-color:  #3b42504d;
 
@@ -167,7 +168,7 @@ header, .abstract, .skills-wrapper{
 }
 
 .designer h2, .front-end h2, .back-end h2, .designer p, .front-end p, .back-end p, .designer h3, .front-end h3, .back-end h3{
-    margin: 40px 50px 0;
+    margin: 40px 15%;
 }
 
 .designer h2, .front-end h2, .back-end h2, .designer h3, .front-end h3, .back-end h3{
@@ -178,8 +179,96 @@ header, .abstract, .skills-wrapper{
     font-family: 'Poppins', sans-serif;
 }
 
-.projects{
-    background-color: lightcoral;
+.projects-wrapper{
+    margin-top: 20vh;
+    text-align: center;
+}
+
+.projects-wrapper h1{
+    font-family: 'Proza Libre', sans-serif;
+    font-size: 32px;
+}
+
+.projects-wrapper>h2{
+    width: 80vw;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.projects-showcase{
+    width: 80vw;
+    margin: 150px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px,1fr));
+    row-gap: 15%;
+    column-gap: 2%;
+}
+
+.projects-showcase div{
+    position: relative;
+    justify-self: center;
+    border-radius: 10px;
+}
+
+.projects-showcase div img{
+    width: 100%;
+    height: 120%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px #3B42502f, -1px 0 3px #3b42502f;
+    transition: all 0.4s ease-in-out;
+}
+
+.projects-showcase div:hover img{
+    box-shadow: 8px 8px 20px #3b42507a, -8px -8px 20px #3b42507a;
+}
+
+.projects-showcase div .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    opacity: 0;
+    transition: all 0.2s ease-in;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.projects-showcase div .overlay>h2{
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
+    font-size: 1.1rem;
+    margin: 0 50px;
+}
+
+.projects-showcase div .overlay span{
+    width: 150px;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 2px solid white;
+    align-self: center ;
+    cursor: pointer;
+}
+
+.projects-showcase div .overlay span:hover{
+    color: #242c3c;
+    background-color: white;
+}
+
+.projects-showcase a{
+    text-decoration: none;
+    color: white;
+}
+
+.projects-showcase div:hover .overlay{
+    opacity: 1;
+    background-color: #242c3c;
 }
 
 .achievements{
@@ -189,5 +278,11 @@ header, .abstract, .skills-wrapper{
 footer{
     background-color: black;
     color: white;
+}
+
+@media screen and (max-width: 500px){
+    .projects-showcase{
+        width: 90vw;
+    }
 }
 
